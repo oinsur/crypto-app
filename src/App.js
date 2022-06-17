@@ -7,7 +7,7 @@ function App() {
   const [listOfCoins, setListOfCoins] = useState([])
 
   useEffect(() => {
-    Axios.get("https://api.coinstats.app/public/v1/coins?skip=0&limit=10").then(
+    Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
       (response) => {
         setListOfCoins(response.data.coins);
       }
@@ -15,7 +15,9 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <div className="crptoHeader"></div>
+      <div className="cryptoHeader">
+        <input type="text" placeholder="Bitcoin..." />
+      </div>
       <div className="cryptoDisplay">
         {listOfCoins.map((coin) => {
           return (
